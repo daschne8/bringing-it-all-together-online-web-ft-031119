@@ -13,8 +13,10 @@ class Dog
   def self.create_table
     sql = <<-SQL
     CREATE TABLE IF NOT EXISTS dogs(
-
-    )
-    DB[:conn].execute("")
+      id INTEGER PRIMARY KEY,
+      name TEXT,
+      breed TEXT)
+    SQL
+    DB[:conn].execute(sql)
   end
 end
