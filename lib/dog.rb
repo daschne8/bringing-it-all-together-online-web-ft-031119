@@ -45,7 +45,7 @@ class Dog
     Dog.new_from_db(DB[:conn].execute(sql,id)[0])
   end
 
-  def self.find_by_name(name:)
+  def self.find_by_name(name)
     sql = <<-SQL
     SELECT * FROM dogs WHERE name = ?
     SQL
