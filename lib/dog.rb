@@ -28,6 +28,12 @@ class Dog
     DB[:conn].execute(sql,self.name,self.breed,self.id)
   end
 
+  def create(attributes)
+    dog = Dog.new(attributes)
+    dog.save
+    dog
+  end
+
   def self.create_table
     sql = <<-SQL
     CREATE TABLE IF NOT EXISTS dogs(
