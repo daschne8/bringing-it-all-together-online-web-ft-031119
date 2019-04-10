@@ -42,7 +42,7 @@ class Dog
     sql = <<-SQL
     SELECT * FROM dogs WHERE id = ?
     SQL
-    self.create(DB[:conn].execute(sql,id))
+    self.create(DB[:conn].execute(sql,id).first)
   end
 
   def self.create_table
