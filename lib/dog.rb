@@ -57,6 +57,14 @@ class Dog
     dog
   end
 
+  def self.find_by_name(name:)
+    sql = <<-SQL
+    SELECT * FROM dogs WHERE name = ?
+    SQL
+    rs = DB[:conn].execute(sql,id)[0]
+    Dog.new_from_db(rs)
+  end
+
   def self.create_table
     sql = <<-SQL
     CREATE TABLE IF NOT EXISTS dogs(
